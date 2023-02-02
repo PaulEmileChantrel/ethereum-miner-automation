@@ -1,0 +1,17 @@
+
+#Routine in the crontab file
+cd /etc
+sudo nano crontab
+
+
+59 7 * * 1-5 root sudo cp /usr/local/minerLocalScript/ETH_ETC_switch/time_day.txt /usr/local/minerLocalScript/ETH_ETC_switch/current_time.txt
+
+59 10 * * 6,7 root sudo cp /usr/local/minerLocalScript/ETH_ETC_switch/time_day.txt /usr/local/minerLocalScript/ETH_ETC_switch/current_time.txt
+
+59 22 * * 0-4 root sudo cp /usr/local/minerLocalScript/ETH_ETC_switch/time_night.txt /usr/local/minerLocalScript/ETH_ETC_switch/current_time.txt
+
+59 0 * * 6,7 root sudo cp /usr/local/minerLocalScript/ETH_ETC_switch/time_night.txt /usr/local/minerLocalScript/ETH_ETC_switch/current_time.txt
+
+0 * * * * root sudo /bin/bash /usr/local/minerLocalScript/ETH_ETC_switch/checkAPI.sh
+
+0 0 * * * root sudo /bin/bash /usr/local/minerLocalScript/ETH_ETC_switch/exchange.sh
